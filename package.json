@@ -1,0 +1,33 @@
+{
+  "name": "DTest",
+  "version": "0.0.1",
+  "description": "Documentation based inline unit tests",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-speed/DTest.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "test",
+    "javascript",
+    "unittest",
+    "unit"
+  ],
+  "author": "Tim Speed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tim-speed/DTest/issues"
+  },
+  "homepage": "https://github.com/tim-speed/DTest",
+  "dependencies": {
+    "generate-js": "^1.1.2"
+  }
+}

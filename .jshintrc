@@ -1,0 +1,37 @@
+{
+  // Details: https://github.com/victorporof/Sublime-JSHint#using-your-own-jshintrc-options
+  // Example: https://github.com/jshint/jshint/blob/master/examples/.jshintrc
+  // Documentation: http://www.jshint.com/docs/options/
+
+  // Extra Checks
+  "immed": true,
+  "indent": 4,
+  "latedef": "nofunc",
+  "newcap": false,
+  "noarg": true,
+  "nonbsp": true,
+  "nonew": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": "vars",
+  "strict": false,
+  "maxdepth": 10,
+  "maxlen": 200,
+  // Reducing Checks
+  "boss": true,
+  "esnext": true,
+  "evil": true,
+  "expr": true,
+  "globalstrict": false,
+  "loopfunc": true,
+  "multistr": true,
+  // Environments
+  "browser": true,
+  "globals": {
+    "define": false // For require.js
+  },
+  "devel": true,
+  "jquery": true,
+  "node": true // For browserify
+}
+
