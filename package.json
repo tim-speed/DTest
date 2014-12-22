@@ -1,6 +1,6 @@
 {
   "name": "DTest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Documentation based inline unit tests",
   "main": "index.js",
   "directories": {
@@ -27,6 +27,10 @@
     "url": "https://github.com/tim-speed/DTest/issues"
   },
   "homepage": "https://github.com/tim-speed/DTest",
+  "preferGlobal" : true,
+  "bin" : { 
+    "dtest" : "./bin/dtest" 
+  },
   "dependencies": {
     "generate-js": "^1.1.2"
   }
