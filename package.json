@@ -1,6 +1,6 @@
 {
   "name": "DTest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Documentation based inline unit tests",
   "main": "index.js",
   "directories": {

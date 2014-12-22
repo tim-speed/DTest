@@ -19,6 +19,7 @@ Options:\n\
 var args = process.execArgv,
     recursive = false,
     files = [],
+    cwd = process.cwd(),
     i = 0;
 
 if (!args.length) {
@@ -46,9 +47,9 @@ for (; i < args.length; i++) {
         } else {
             // Convert to absolute and add
             if (arg.substr(0, 2) === './') {
-                files.push(__dirname + '/' + arg.substr(2));
+                files.push(cwd + '/' + arg.substr(2));
             } else {
-                files.push(__dirname + '/' + arg);
+                files.push(cwd + '/' + arg);
             }
         }
     }
