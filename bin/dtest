@@ -1,2 +1,7 @@
 #!/usr/bin/env node
-require('DTest');
+
+// Check if running locally or not
+if (__dirname.slice(-9) === 'DTest/bin')
+    require('../index');
+else
+    require('DTest');

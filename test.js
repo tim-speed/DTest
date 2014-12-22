@@ -1,14 +1,6 @@
+var child_process = require('child_process');
 
-var fs = require('fs'),
-    DTest = require('./lib/DTest').create();
+var app = child_process.exec(__dirname + '/bin/dtest -r ./test');
 
-var testDir = __dirname + '/test',
-    testFiles = fs.readdirSync(testDir),
-    i = 0, len = testFiles.length, fileName;
-
-for (; i < len; i++) {
-    fileName = testFiles[i];
-    console.log('--- TESTING ' + fileName + ' ---');
-    DTest.testFuncs(testDir + '/' + fileName);
-    console.log('');
-}
+app.stdout.pipe(process.stdout);
+app.stderr.pipe(process.stderr);

@@ -1,13 +1,14 @@
 {
   "name": "DTest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Documentation based inline unit tests",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "postInstall": "chmod +x ./bin/dtest"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,7 @@
   "bin" : { 
     "dtest" : "./bin/dtest" 
   },
-  "dependencies": {
+  "optionalDependencies": {
     "generate-js": "^1.1.2"
   }
 }

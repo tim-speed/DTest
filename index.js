@@ -1,11 +1,10 @@
-var DTestLib = module.exports = require('./lib/DTest');
+var DTest = module.exports = require('./lib/DTest');
 
-if (module.parent)
-    return DTestLib;
+if (module.parent && module.parent.filename.slice(-5) != 'dtest')
+    return DTest;
 
 // Running in CLI mode
-var fs = require('fs'),
-    DTest = DTestLib.create();
+var fs = require('fs');
 
 var help;
 /* jshint ignore:start */
