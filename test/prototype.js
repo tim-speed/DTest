@@ -39,19 +39,26 @@ theClass.prototype.BookLearningNoTest = function BookLearningNoTest(title, autho
     }
 };
 
-var theOtherClass = function theOtherClass() {
 
+/**
+ * Class that does stuff with numbers
+ * @init true
+ * @init false
+ */
+var theOtherClass = function theOtherClass(canAdd) {
+    this.canAdd = canAdd;
 };
 
 /**
- * Adds two numbers.
+ * Adds two numbers when initialized.
  * @param {number} a - var a.
  * @param {number} b - var b.
  * @test 1 2 === 3
  * @test -10 10 === 0
  */
 theOtherClass.prototype.Add = function(a, b) {
-    return a + b;
+    if (this.canAdd)
+        return a + b;
 };
 
 /**
