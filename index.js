@@ -65,18 +65,23 @@ function log(text, path) {
 }
 
 // Iterate through files, expand directories to their child files
-function recursiveFilesProcess(files, level) {
-    var i = 0, 
-        len = files.length, 
-        filePath, fileInfo;
-    for (; i < len; i++) {
-        filePath = files[i];
-        fileInfo = fs.statSync(filePath);
+function recursiveFilesProcess(files, level, cb) {
+    var i = -1, 
+        len = files.length;
+
+    function next() {
+        if (++i >= len)
+            return cb && cb();
+
+        var filePath = files[i],
+            fileInfo = fs.statSync(filePath);
 
         if (fileInfo.isFile()) {
             log('TESTING', filePath);
-            DTest.testFuncs(filePath);
-            console.log('');
+            // TODO: need to add code to test / wait for completion of async
+            DTest.testFuncs(filePath, function recursiveFilesProcessTestFuncsCallback() {
+                next();
+            });
         } else if (fileInfo.isDirectory()) {
             if (recursive || level === 0) {
                 // Get files
@@ -84,14 +89,21 @@ function recursiveFilesProcess(files, level) {
                     return filePath + '/' + val;
                 });
                 // Process
-                recursiveFilesProcess(children, level + 1);
+                recursiveFilesProcess(children, level + 1, function recursiveFilesProcessDirCallback() {
+                    next();
+                });
             } else {
                 log('SKIPPING - Child directory without recursive option: ', filePath);
+                next();
             }
         } else {
             log('SKIPPING - Unhandled object type: ', filePath);
+            next();
         }
     }
+
+    // Handle the first file
+    next();
 }
 
 recursiveFilesProcess(files, 0);
