@@ -7,6 +7,7 @@ To get started look at the files in the test directory
 
 TODO:
 -----
+- Add support for array parameters and object literals
 - Generate.js support
 - TypeScript support
 - Readfile in doc function to specify files to read into string and potentially stream params of functions
